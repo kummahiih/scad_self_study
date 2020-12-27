@@ -1,5 +1,7 @@
 # scad_self_study
 OpenSCAD self study code backup
+
+![Rendering Fibonacci related shapes](screenshot.png)
 ## Notes
 
 ### Recursion and scoping limits 
