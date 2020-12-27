@@ -20,3 +20,9 @@ While doing so I found out that if you have errors on the module, you can not se
 ### Sphere and cylinder rendering performance
 After a hour of copypaste coding I had transformed `fibonacci_wire.scad` into `fibonacci_cylinders.scad` and `fibonacci_spheres.scad` modules.
 The cylindes seem to render fine, but the sphere eats a lot of CPU. If you want to model spheres, you dont maybe want to use OpenSCAD.
+
+### Some pages I had to read
+ * https://en.wikibooks.org/wiki/OpenSCAD_Tutorial
+ * https://en.wikipedia.org/wiki/Denavit%E2%80%93Hartenberg_parameters
+ * https://en.wikipedia.org/wiki/Euler%E2%80%93Rodrigues_formula
+ * https://en.wikipedia.org/wiki/Fibonacci_number
