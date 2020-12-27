@@ -36,7 +36,9 @@ def get_fibonacci():
         width = new_width
 
 
-with open("translated_fibonac_4.scad", "w") as file:
+with open("fibonacci_wire.scad", "w") as file:
+    file.write("""module fibonacci_wire(width=1, height=1, scale=1, iterations = 50) {
+""")
     axis = [0, 0, 1]
     total = 0
     current = np.array([0,0,0])
@@ -46,11 +48,16 @@ with open("translated_fibonac_4.scad", "w") as file:
     for step in range(50):
         rotation = (step * 90) % 360
         x, y, z = map(round, current)
-        line = "translate([%d,%d,%d])rotate(%s)cube([%s,1,1]);\n"%(
-            x, y, z, rotation, width)
+        line = """if(iterations>%d) {
+  translate([%d*scale,%d*scale,%d*scale])rotate(%s)cube([%s*scale,width,height]);
+}
+"""%(step, x, y, z, rotation, width)
         file.write(line)
         movement = np.dot(rotation_matrix(axis, math.pi/2 * step), np.array([width,0,0]))
 
         current = np.add(movement, current)
 
         width = fibonacci.__next__()
+
+    file.write("""}
+""")
